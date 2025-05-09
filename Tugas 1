@@ -1,0 +1,44 @@
+import random
+import os
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+def pilih_level():
+    print("Pilih level permainan:")
+    print("1. Easy (1-10, 5 tebakan)")
+    print("2. Medium (1-100, 10 tebakan)")
+    print("3. Hard (1-1000, 15 tebakan)")
+    while True:
+        pilihan = input("Masukkan pilihan level (1/2/3): ")
+        if pilihan == '1':
+            return 1, 10, 5
+        elif pilihan == '2':
+            return 1, 100, 10
+        elif pilihan == '3':
+            return 1, 1000, 15
+        else:
+            print("Pilihan tidak valid, coba lagi.")
+def main():
+    clear_screen()
+    print("=== Game Tebak Angka MathDaSc ===")
+    batas_bawah, batas_atas, max_tebakan = pilih_level()
+    angka_rahasia = random.randint(batas_bawah, batas_atas)
+    clear_screen()
+    print(f"Angka telah dipilih oleh Asisten 1! (antara {batas_bawah} sampai {batas_atas})")
+    print(f"Asisten 2 punya {max_tebakan} kali kesempatan untuk menebak.\n")
+    for percobaan in range(1, max_tebakan + 1):
+        try:
+            tebakan = int(input(f"Tebakan ke-{percobaan}: "))
+            clear_screen()  
+        except ValueError:
+            print("Masukkan angka yang valid!")
+            continue
+        print(f"Tebakan ke-{percobaan}: {tebakan}")
+        if tebakan < angka_rahasia:
+            print("Angkanya terlalu kecil bro, inputan lebih besar.")
+        elif tebakan > angka_rahasia:
+            print("Angkanya terlalu besar bro, inputan lebih kecil.")
+        else:
+            print(f"Kamu menang, angkanya yang aku pilih itu {angka_rahasia}")
+            return
+    print(f"EZ kali dek, angka yang aku tebak adalah {angka_rahasia}")
+main()
