@@ -1,0 +1,171 @@
+from re import Match
+#1. membuat array
+'''array = [
+    [1,2,3],
+    [4,5,6]
+]
+print(array)'''
+#2. mengakses elemen tertentu dari array
+'''A = [
+    [1,2,3,4,5,6,7,8,9],
+    [9,8,7,6,5,4,3,2,1]
+]
+print(A[1][8])'''
+#3. cetak semua elemen array per baris
+'''B = [
+    [3,5,100],
+    [6,1024,0]
+]
+for baris in B:
+    print (baris)'''
+#4. jumlahkan semua elemen array
+'''C = [
+    [1,2,3],
+    [4,5,6]
+]
+total = 0
+for baris in C:
+    for elemen in baris:
+        total +=elemen
+    print (total)'''
+#5. cari nilai maksimum
+'''D = [
+    [1,8,3],
+    [6,4,2]
+]
+maks = D[0][0]
+for baris in D:
+    for elemen in baris:
+        if elemen > maks:
+            maks = elemen
+print(maks)'''
+#6. transpose array 2d
+'''E = [
+    [1,3],
+    [2,6],
+    [3,5]
+]
+transpose = []
+for i in range (len(E[0])):
+    baris_baru = []
+    for j in range (len(E)):
+        baris_baru.append(E[j][i])
+    transpose.append(baris_baru)
+for baris in transpose:
+    print (baris)'''
+#7. jumlah per baris
+'''F=[
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+for i in range (len(F)):
+  jumlah_baris=sum(F[i])
+  print(f"jumlah baris ke- {i+1}: {jumlah_baris}")'''
+#8. jumlah per kolom
+'''for j in range (len(F[0])):
+  jumlah_kolom=0
+  for i in range (len(F)):
+    jumlah_kolom+=F[i][j]
+  print(f"jumlah kolom ke- {j+1}: {jumlah_kolom}")'''
+#9. mengedit array 2d
+#a. menambah baris baru
+'''Y=[
+      [1,2,3],
+      [4,5,6],
+
+  ]
+Y.insert(1, [8,9,10])
+print(Y)
+
+#b mengganti nilai
+Y[1][1]=10
+print(Y)
+
+#c menghapus
+del Y[1]
+print(Y)
+del Y[0][2]
+print(Y)'''
+
+#soal latihan modul 6 array 2d
+#matriks identitas 4x4
+'''matriks = []
+entri = 0
+
+for i in range(0,4):
+  baris=[]
+  for j in range(0,4):
+    if i==j:
+      entri=1
+    else:
+      entri=0
+    baris.append(entri)
+  matriks.append(baris)
+
+for i in range (0,4):
+  for j in range (0,4):
+      print(matriks[i][j]," ",end= " ")
+  print()'''
+#10. penjumlahan matriks dengan cara menginputkan
+'''baris = 3
+kolom = 3
+
+print("Elemen matriks A")
+A = []
+for i in range(baris):
+    row = []
+    for j in range(kolom):
+        elemen = int(input(f"A[{i}][{j}]: "))
+        row.append(elemen)
+    A.append(row)
+    print()
+
+
+print("Elemen matriks B")
+B = []
+for i in range(baris):
+    row = []
+    for j in range(kolom):
+        elemen = int(input(f"B[{i}][{j}]: "))
+        row.append(elemen)
+    B.append(row)
+    print()
+
+C = []
+for i in range(baris):
+    row = []
+    for j in range(kolom):
+        jumlah = A[i][j] + B[i][j]
+        row.append(jumlah)
+    C.append(row)
+
+
+print("Hasil penjumlahan matriks (A + B):")
+for row in C:
+    print(row)
+    print()'''
+#11. Data Mahasiswa: Rata-rata dan Nilai Tertinggi
+'''mahasiswa = ["Andi", "Budi", "Caca", "Doni", "Evan",
+             "Faris", "Gaby", "Hartono", "Intan", "Julian"]
+nilai = [
+    [78, 80],
+    [89, 89],
+    [87, 88],
+    [70, 96],
+    [90, 83],
+    [89, 74],
+    [88, 95],
+    [56, 88],
+    [67, 86],
+    [66, 69]
+]
+rata_rata = []
+for i in range (len(nilai)):
+  avg = sum(nilai[i])/len(nilai[i])
+  rata_rata.append(avg)
+max_nilai=max(rata_rata)
+indeks_tertinggi = rata_rata.index(max_nilai)
+mahasiswa_terbaik = mahasiswa[indeks_tertinggi]
+print(f"Mahasiswa dengan rata-rata tertinggi adalah {mahasiswa_terbaik} dengan nilai {max_nilai}")'''
+
